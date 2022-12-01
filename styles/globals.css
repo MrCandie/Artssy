@@ -22,3 +22,21 @@ ul {
 .mySwiper {
   width: 100%;
 }
+.center {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 4rem;
+}
+.center a {
+  background: blue;
+  display: block;
+  padding: 1rem;
+  color: #fff;
+  width: 200px;
+  border-radius: 0.4rem;
+  margin: 1rem auto;
+  transition: transform 0.2s ease-in;
+}
+.center a:active {
+  transform: scale(0.5);
+}

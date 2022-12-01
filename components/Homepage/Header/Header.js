@@ -38,9 +38,11 @@ export default function Header() {
         <span>
           <AiOutlineSearch />
         </span>
-        <span>
-          <AiOutlineShoppingCart />
-        </span>
+        <Link href="/cart">
+          <span>
+            <AiOutlineShoppingCart />
+          </span>
+        </Link>
         <span>
           <BsBell />
         </span>
@@ -73,9 +75,11 @@ export default function Header() {
         <span>
           <AiOutlineSearch />
         </span>
-        <span>
-          <AiOutlineShoppingCart />
-        </span>
+        <Link href="/cart">
+          <span>
+            <AiOutlineShoppingCart />
+          </span>
+        </Link>
       </div>
     </header>
   );

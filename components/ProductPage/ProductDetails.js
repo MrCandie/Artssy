@@ -3,20 +3,25 @@ import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { GrAdd } from "react-icons/gr";
 import { CiHeart } from "react-icons/ci";
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { FaGreaterThan } from "react-icons/fa";
 import { FaLessThan } from "react-icons/fa";
 import { allProducts } from "../../Store";
+import { CartContext } from "../../CartContext";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Link from "next/link";
 
 export default function ProductDetail({ product }) {
+  const cart = useContext(CartContext);
+
   const allProduct = allProducts();
   if (!product) {
     return <p>Loading...</p>;
   }
+
+  const quantity = cart.getProductQuantity(product.id);
   return (
     <Fragment>
       <div className={classes.details}>
@@ -30,16 +35,16 @@ export default function ProductDetail({ product }) {
           <p>{product.location}</p>
           <p>Total views: {product.totalViews}</p>
           <div className={classes.quantity}>
-            <span>
+            <span onClick={() => cart.removeOneFromCart(product.id)}>
               <AiOutlineMinus />
             </span>
-            <span>2</span>
-            <span>
+            <span>{quantity}</span>
+            <span onClick={() => cart.addOneToCart(product.id)}>
               <GrAdd />
             </span>
           </div>
           <div className={classes.button}>
-            <button>
+            <button onClick={() => cart.addOneToCart(product.id)}>
               Add to cart
               <span>
                 <AiOutlineArrowRight />
@@ -74,8 +79,8 @@ export default function ProductDetail({ product }) {
       </div>
       <Swiper slidesPerView={5} className={classes.featured}>
         <div>
-          {allProduct.map((data) => (
-            <div>
+          {allProduct.map((data, i) => (
+            <div key={i}>
               <SwiperSlide className={classes.feature}>
                 <div className={classes.featImg}>
                   <img src={`../../${data.image}`} />
