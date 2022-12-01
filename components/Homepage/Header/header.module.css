@@ -1,0 +1,107 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header nav ul {
+  display: flex;
+  gap: 1.5rem;
+}
+.header nav ul li {
+  color: #292929;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+.header .logo a {
+  color: #292929;
+  font-weight: 700;
+}
+.icons {
+  display: flex;
+  gap: 1.3rem;
+}
+.icons span {
+  font-size: 1.2rem;
+  color: #333333;
+  cursor: pointer;
+}
+.navbar {
+  display: none;
+}
+.menu {
+  display: none;
+}
+.smallIcon {
+  display: none;
+}
+
+@media (max-width: 850px) {
+  .header {
+    justify-content: center;
+  }
+  .header nav ul {
+    display: none;
+  }
+  .header .logo {
+    margin-top: 0.5rem;
+  }
+  .navbar {
+    display: block;
+    background: #1f1f1f;
+    opacity: 0.95;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    opacity: 1;
+    width: 100%;
+  }
+  .navbar ul li {
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+  }
+
+  .navbar span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: red;
+    font-size: 1.5rem;
+    margin: 0.5rem;
+    cursor: pointer;
+  }
+  .menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 1.3rem;
+    cursor: pointer;
+    margin: 0.5rem;
+  }
+  .icons {
+    display: none;
+  }
+  .smallIcon {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0.5rem;
+    display: flex;
+    gap: 0.8rem;
+  }
+}

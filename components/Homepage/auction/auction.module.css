@@ -1,0 +1,138 @@
+.section {
+  width: 100%;
+  margin: 3rem 0;
+  background: linear-gradient(
+      50.99deg,
+      #4693ed -26.21%,
+      #79c2d2 22.16%,
+      rgba(192, 86, 9, 0.1) 111.62%
+    ),
+    url("/images/auction1.avif");
+  height: 80vh;
+  padding: 1rem 0;
+  /* opacity: ; */
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+.container {
+  position: absolute;
+  bottom: 25%;
+  text-align: center;
+}
+
+.section h1 {
+  color: #fff;
+  font-size: 2.4rem;
+  width: 80%;
+  margin: auto;
+  text-transform: capitalize;
+}
+.body {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 1rem;
+}
+.number {
+  width: 20%;
+}
+.number h1 {
+  font-size: 4rem;
+}
+.content {
+  width: 50%;
+}
+.content h2 {
+  font-size: 1.7rem;
+  font-weight: 400;
+  line-height: 33px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: uppercase;
+  width: 28%;
+  color: #fff;
+}
+.content p {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  text-transform: uppercase;
+  color: #fff;
+  width: 100%;
+}
+.button {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.remainder {
+  background: transparent;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  border: 1px solid #fff;
+  color: #fff;
+}
+.more {
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 32px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #fff;
+}
+.more a {
+  text-decoration: underline;
+}
+.move {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  display: flex;
+  gap: 1rem;
+}
+.move span {
+  padding: 1rem;
+  color: #fff;
+
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 7.77035px 7.77035px 11.6555px rgba(0, 0, 0, 0.15);
+  backdrop-filter: blur(7.77035px);
+}
+
+@media (max-width: 850px) {
+  .section h1,
+  .content h2 {
+    font-size: 1.2rem;
+    width: 90%;
+  }
+  .container {
+    bottom: 5%;
+  }
+  .content,
+  .number,
+  .button {
+    width: 80%;
+    margin: auto;
+  }
+  .number h1 {
+    text-align: start;
+  }
+  .more,
+  .remainder {
+    font-size: 0.8rem;
+  }
+  .body {
+    flex-direction: column;
+  }
+}

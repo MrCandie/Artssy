@@ -1,0 +1,33 @@
+.section {
+  width: 100%;
+  margin: 3rem auto;
+}
+.explore {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+}
+.explore h1 {
+  font-size: 2.2rem;
+  font-weight: 500;
+  line-height: 65px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+.explore span {
+  color: #4693ed;
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.section hr {
+  border: none;
+  border-bottom: 1px solid #ccc;
+}
+@media (max-width: 850px) {
+  .explore h1,
+  .explore span {
+    font-size: 1rem;
+  }
+}
