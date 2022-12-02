@@ -27,10 +27,10 @@ export default function Header() {
             <Link href="/product">Marketplace</Link>
           </li>
           <li>
-            <Link href="">Auction</Link>
+            <Link href="/auction">Auction</Link>
           </li>
           <li>
-            <Link href="">Drop</Link>
+            <Link href="/drop">Drop</Link>
           </li>
         </ul>
       </nav>
@@ -62,11 +62,11 @@ export default function Header() {
             </li>
 
             <li>
-              <Link href="">Auction</Link>
+              <Link href="/auction">Auction</Link>
             </li>
 
             <li>
-              <Link href="">Drop</Link>
+              <Link href="/drop">Drop</Link>
             </li>
           </ul>
         </div>

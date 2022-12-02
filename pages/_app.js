@@ -6,7 +6,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <Layout>
       <CartProvider>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </CartProvider>
     </Layout>
   );

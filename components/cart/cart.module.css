@@ -157,15 +157,30 @@
     width: 90%;
   }
   .image {
-    width: 50px;
+    width: 100px;
+  }
+  .image img {
+    /* height: 180px; */
   }
   .cart h1 {
     font-size: 0.9rem;
+    margin: 0;
   }
   .cart h2 {
     font-size: 1rem;
+    margin: 0;
   }
   .cart span {
     font-size: 1rem;
+    margin: 0;
+  }
+  .cost {
+    gap: 4rem;
+  }
+  .buttons {
+    margin-top: 0.4rem;
+    padding: 0.3rem;
+    border: 1px solid #333;
+    border-radius: 1rem;
   }
 }

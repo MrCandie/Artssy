@@ -15,12 +15,14 @@ export default function Explore() {
         </div>
       </Link>
       <hr />
-      <div className={classes.explore}>
-        <h1>See auctions</h1>
-        <span>
-          <AiOutlineArrowRight />
-        </span>
-      </div>
+      <Link href="/auction">
+        <div className={classes.explore}>
+          <h1>See auctions</h1>
+          <span>
+            <AiOutlineArrowRight />
+          </span>
+        </div>
+      </Link>
       <hr />
     </section>
   );

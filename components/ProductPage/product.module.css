@@ -302,13 +302,17 @@
 }
 @media (max-width: 850px) {
   .list {
+    width: 100%;
+    margin-top: 1rem;
+
+    padding: 0;
     flex-direction: column;
   }
   .list li {
-    width: 100%;
+    width: 70%;
   }
   .filter {
-    width: 25%;
+    display: none;
   }
   .category h1,
   .fil span {
@@ -345,4 +349,7 @@
   .btn {
     width: 30%;
   }
+  /* .details {
+    flex-direction: column;
+  } */
 }

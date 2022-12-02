@@ -9,12 +9,15 @@ export default function Cart() {
   const totalCost = cart.getTotalCost().toFixed(2);
 
   const shippingFee = (totalCost * 0.07).toFixed(2);
-  const quantity = cart.items.map((item) => item.quantity);
+  const quantity = cart.items.map((item) => {
+    return item.quantity;
+  });
+  // console.log(quantity[0]);
 
   return (
     <section className={classes.section}>
       <h1 className={classes.h1}>Shopping Cart</h1>
-      {quantity > 0 ? (
+      {quantity[0] > 0 ? (
         <Fragment>
           {cart.items.map((item) => (
             <CartItem id={item.id} quantity={item.quantity} />
@@ -27,7 +30,7 @@ export default function Cart() {
         </div>
       )}
 
-      {quantity > 0 && (
+      {quantity[0] > 0 && (
         <div className={classes.check}>
           <div className={classes.checkout}>
             <div className={classes.proceed}>
