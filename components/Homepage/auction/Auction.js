@@ -24,7 +24,7 @@ export default function Auction() {
           </div>
           <div className={classes.button}>
             <div className={classes.more}>
-              <Link href="">See more</Link>
+              <Link href="/auction">See more</Link>
             </div>
             <div className={classes.remainder}>
               <Link href="">Set a remainder</Link>

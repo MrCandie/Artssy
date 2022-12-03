@@ -2,6 +2,8 @@ import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 import classes from "./cart.module.css";
 import Spinner from "../spinner/spinner";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Checkout() {
   const [loading, setLoading] = useState(false);
@@ -46,10 +48,12 @@ export default function Checkout() {
         setLoading(false);
         if (res.ok) {
           router.replace("/payment");
+        } else {
+          toast.error("something went wrong");
         }
         return res.json();
       })
-      .then((data) => alert(data.message));
+      .then((data) => toast.success(data.message));
   }
 
   return (
@@ -91,6 +95,7 @@ export default function Checkout() {
         <button>Proceed to payment</button>
       </form>
       {loading && <Spinner />}
+      <ToastContainer position="top-center" autoClose={5000} />
     </section>
   );
 }

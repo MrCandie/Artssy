@@ -11,7 +11,7 @@ export default function ProductItem({ products }) {
           onClick={() => router.push(`/product/${product.id}`)}
           key={product.id}
         >
-          <img src={product.image} />
+          <img src={`../../${product.image}`} />
           <h1>{product.name}</h1>
           <p>${product.price}</p>
         </li>

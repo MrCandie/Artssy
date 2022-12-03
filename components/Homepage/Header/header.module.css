@@ -19,6 +19,13 @@
   color: #292929;
   font-size: 1.4rem;
   line-height: 2rem;
+  transition: all 0.2s ease-in;
+}
+.header nav ul li:hover {
+  text-decoration: underline;
+}
+.header nav ul li:active {
+  transform: scale(0.8);
 }
 .header .logo a {
   color: #292929;

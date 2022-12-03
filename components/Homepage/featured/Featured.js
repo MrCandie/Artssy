@@ -1,5 +1,6 @@
 import classes from "./featured.module.css";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import Link from "next/link";
 
 export default function Featured() {
   return (
@@ -28,9 +29,11 @@ export default function Featured() {
                 <img src="/images/featured2.avif" />
               </div>
               <p>64 major creators</p>
-              <span className={classes.arrow}>
-                <AiOutlineArrowRight />
-              </span>
+              <Link href="/product">
+                <span className={classes.arrow}>
+                  <AiOutlineArrowRight />
+                </span>
+              </Link>
             </div>
           </div>
         </div>
@@ -57,9 +60,11 @@ export default function Featured() {
                 <img src="/images/featured3.avif" />
               </div>
               <p>64 major creators</p>
-              <span className={classes.arrow}>
-                <AiOutlineArrowRight />
-              </span>
+              <Link href="/product">
+                <span className={classes.arrow}>
+                  <AiOutlineArrowRight />
+                </span>
+              </Link>
             </div>
           </div>
         </div>
@@ -86,9 +91,11 @@ export default function Featured() {
                 <img src="/images/featured4.avif" />
               </div>
               <p>64 major creators</p>
-              <span className={classes.arrow}>
-                <AiOutlineArrowRight />
-              </span>
+              <Link href="/product">
+                <span className={classes.arrow}>
+                  <AiOutlineArrowRight />
+                </span>
+              </Link>
             </div>
           </div>
         </div>

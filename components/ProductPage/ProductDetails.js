@@ -8,6 +8,8 @@ import { FaGreaterThan } from "react-icons/fa";
 import { FaLessThan } from "react-icons/fa";
 import { allProducts } from "../../Store";
 import { CartContext } from "../../CartContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -19,6 +21,16 @@ export default function ProductDetail({ product }) {
   const allProduct = allProducts();
   if (!product) {
     return <p>Loading...</p>;
+  }
+
+  function addToCartHandler() {
+    toast.success("One item added to cart");
+    cart.addOneToCart(product.id);
+  }
+
+  function removeFromCartHandler() {
+    toast.success("One item removed from cart");
+    cart.removeOneFromCart(product.id);
   }
 
   const quantity = cart.getProductQuantity(product.id);
@@ -34,17 +46,21 @@ export default function ProductDetail({ product }) {
           <h2>{product.creator}</h2>
           <p>{product.location}</p>
           <p>Total views: {product.totalViews}</p>
+
+          <div className={classes.desc}>
+            <p>{product.description}</p>
+          </div>
           <div className={classes.quantity}>
-            <span onClick={() => cart.removeOneFromCart(product.id)}>
+            <span onClick={removeFromCartHandler}>
               <AiOutlineMinus />
             </span>
             <span>{quantity}</span>
-            <span onClick={() => cart.addOneToCart(product.id)}>
+            <span onClick={addToCartHandler}>
               <GrAdd />
             </span>
           </div>
           <div className={classes.button}>
-            <button onClick={() => cart.addOneToCart(product.id)}>
+            <button onClick={addToCartHandler}>
               Add to cart
               <span>
                 <AiOutlineArrowRight />
@@ -53,16 +69,6 @@ export default function ProductDetail({ product }) {
             <span className={classes.span}>
               <CiHeart />
             </span>
-          </div>
-          <div className={classes.desc}>
-            <h2>Description</h2>
-            {false && <p>{product.description}</p>}
-          </div>
-          <div className={classes.desc}>
-            <h2>Listings</h2>
-          </div>
-          <div className={classes.desc}>
-            <h2>Status</h2>
           </div>
         </div>
       </div>
@@ -97,6 +103,7 @@ export default function ProductDetail({ product }) {
       <div className={classes.btn}>
         <Link href="/product">Explore all</Link>
       </div>
+      <ToastContainer position="top-center" autoClose={5000} />
     </Fragment>
   );
 }

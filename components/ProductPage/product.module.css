@@ -45,6 +45,9 @@
 }
 .sort form select {
   border: none;
+  padding: 1rem;
+  font-size: 1rem;
+  outline: none;
 }
 .sort form {
   border: 1px solid #333;
@@ -82,6 +85,9 @@
   gap: 1rem;
   margin: 1rem 0;
 }
+.cats p {
+  cursor: pointer;
+}
 .cat label {
   font-size: 1rem;
 }
@@ -103,6 +109,7 @@
   background: #ffffff;
   box-shadow: 0px 34px 68px rgba(217, 225, 244, 0.36);
   border-radius: 15px;
+  cursor: pointer;
 }
 .list li img {
   width: 100%;
@@ -173,7 +180,8 @@
 .quantity {
   display: flex;
   gap: 1rem;
-  margin: 2rem 0;
+  align-items: center;
+  margin: 1rem 0;
 }
 .quantity span {
   font-size: 1.5rem;
@@ -204,6 +212,7 @@
   align-items: center;
   gap: 1rem;
   transition: transform 0.2s ease-in;
+  /* margin: 0; */
 }
 .button button:active {
   transform: scale(0.5);
@@ -223,9 +232,8 @@
   border-radius: 0.3rem;
 }
 .desc {
-  margin: 1rem 0;
-  padding: 0.5rem;
-  border: 1px solid #333;
+  margin: 0;
+  padding: 0 0.5rem;
 }
 .desc h2 {
   font-size: 1.2rem;
@@ -234,6 +242,12 @@
   letter-spacing: 0em;
   text-align: left;
   color: #333;
+}
+.desc p {
+  font-size: 0.9rem;
+  width: 100%;
+  width: 100%;
+  /* margin: 0; */
 }
 .more {
   width: 60%;
@@ -292,13 +306,24 @@
     rgba(192, 86, 9, 0.49) 100%
   );
   color: #fff;
+  font-weight: bold;
   width: 15%;
   margin: 2rem auto;
   text-align: center;
   border-radius: 0.3rem;
+  transition: transform 0.2s ease-in;
   background: linear-gradient(180deg, #78a3ad 0%, rgba(192, 86, 9, 0.49) 100%);
 }
-.btn a {
+.btn:active {
+  transform: scale(0.5);
+}
+.fashion {
+  margin: 3rem 0;
+}
+.fashion h1 {
+  text-align: center;
+  color: #333;
+  font-size: 1.5rem;
 }
 @media (max-width: 850px) {
   .list {
@@ -348,6 +373,24 @@
   }
   .btn {
     width: 30%;
+  }
+  .quantity {
+    border: 1px solid #333;
+    width: 150px;
+    /* margin: auto; */
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .quantity span {
+    display: flex;
+    align-items: center;
+  }
+  .button {
+    margin: 1rem 0;
   }
   /* .details {
     flex-direction: column;
