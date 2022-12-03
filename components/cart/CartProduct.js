@@ -22,6 +22,7 @@ export default function CartProduct({ id, quantity }) {
   function removeFromCartHandler() {
     toast.success("One item removed from cart", {
       closeOnClick: true,
+      autoClose: 500,
     });
     cart.removeOneFromCart(id);
   }
@@ -29,6 +30,7 @@ export default function CartProduct({ id, quantity }) {
   function deleteCartHandler() {
     toast.success("cart item deleted", {
       closeOnClick: true,
+      autoClose: 500,
     });
     cart.deleteFromCart(id);
   }
@@ -63,7 +65,7 @@ export default function CartProduct({ id, quantity }) {
           <h1>${product.price}</h1>
         </div>
       </div>
-      <ToastContainer position="top-center" autoClose={5000} />
+      <ToastContainer position="top-center" autoClose={1000} />
     </section>
   );
 }

@@ -24,12 +24,16 @@ export default function ProductDetail({ product }) {
   }
 
   function addToCartHandler() {
-    toast.success("One item added to cart");
+    toast.success("One item added to cart", {
+      autoClose: 500,
+    });
     cart.addOneToCart(product.id);
   }
 
   function removeFromCartHandler() {
-    toast.success("One item removed from cart");
+    toast.success("One item removed from cart", {
+      autoClose: 500,
+    });
     cart.removeOneFromCart(product.id);
   }
 
