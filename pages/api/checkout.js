@@ -13,15 +13,7 @@ export default async function handler(req, res) {
     const { name, postalCode, email, number, checked, city, country } =
       req.body;
 
-    if (
-      !name ||
-      !postalCode ||
-      !email ||
-      !number ||
-      !checked ||
-      !city ||
-      !country
-    ) {
+    if (!name || !postalCode || !email || !number || !city || !country) {
       res.status(422).json({
         message: "invalid data...Make sure all fields are correctly filled",
       });
@@ -41,7 +33,7 @@ export default async function handler(req, res) {
 
     try {
       const result = await db.collection("user").insertOne(userData);
-      console.log(result);
+
       res.status(201).json({ message: "Submitting order successful" });
     } catch (error) {
       res.status(500).json({ message: "Submitting order failed!!!" });
