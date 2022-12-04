@@ -7,7 +7,6 @@ export default function ProductDetails() {
   const router = useRouter();
 
   const id = router.query.productId;
-
   const product = getProduct(id);
 
   return <ProductDetail product={product} />;

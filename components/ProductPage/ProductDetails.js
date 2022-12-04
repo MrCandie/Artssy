@@ -16,6 +16,7 @@ import "swiper/css";
 import Link from "next/link";
 
 export default function ProductDetail({ product }) {
+  console.log(product);
   const cart = useContext(CartContext);
 
   const allProduct = allProducts();
@@ -90,7 +91,7 @@ export default function ProductDetail({ product }) {
       <Swiper slidesPerView={5} className={classes.featured}>
         <div>
           {allProduct.map((data, i) => (
-            <div key={i}>
+            <div key={data.id}>
               <SwiperSlide className={classes.feature}>
                 <div className={classes.featImg}>
                   <img src={`../../${data.image}`} />

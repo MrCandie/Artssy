@@ -6,11 +6,8 @@ export default function ProductItem({ products }) {
 
   return (
     <Fragment>
-      {products.map((product) => (
-        <li
-          onClick={() => router.push(`/product/${product.id}`)}
-          key={product.id}
-        >
+      {products.map((product, i) => (
+        <li onClick={() => router.push(`/product/${product.id}`)} key={i}>
           <img src={`../../${product.image}`} />
           <h1>{product.name}</h1>
           <p>${product.price}</p>
