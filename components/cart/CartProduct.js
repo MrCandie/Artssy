@@ -8,9 +8,9 @@ import { CartContext } from "../../CartContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-export default function CartProduct({ id, quantity }) {
+export default function CartProduct({ id, quantity, product }) {
   const cart = useContext(CartContext);
-  const product = getProduct(id);
+  const products = getProduct(id);
 
   function addToCartHandler() {
     toast.success("One item added to cart", {
@@ -41,10 +41,10 @@ export default function CartProduct({ id, quantity }) {
       <div className={classes.container}>
         <div className={classes.body}>
           <div className={classes.image}>
-            <img src={`../../${product.image}`} />
+            <img src={`../../${products.image}`} />
           </div>
           <div>
-            <h2>{product.name}</h2>
+            <h2>{products.name}</h2>
             <h1>clearamane</h1>
             <h1>Size: 200ft</h1>
             <div className={classes.buttons}>
@@ -62,7 +62,7 @@ export default function CartProduct({ id, quantity }) {
           <span onClick={deleteCartHandler}>
             <AiFillCloseCircle />
           </span>
-          <h1>${product.price}</h1>
+          <h1>${products.price}</h1>
         </div>
       </div>
       <ToastContainer position="top-center" autoClose={1000} />

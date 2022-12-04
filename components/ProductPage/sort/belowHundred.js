@@ -3,8 +3,8 @@ import { hundredRange } from "../../../Store";
 import classes from "../product.module.css";
 import ProductItem from "../productItem";
 
-export default function BelowHundred() {
-  const product = hundredRange();
+export default function BelowHundred({ product }) {
+  // const product = hundredRange();
 
   return (
     <section className={classes.fashion}>

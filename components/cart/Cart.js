@@ -4,7 +4,7 @@ import { CartContext } from "../../CartContext";
 import classes from "./cart.module.css";
 import CartItem from "./CartItem";
 
-export default function Cart() {
+export default function Cart({ product }) {
   const cart = useContext(CartContext);
   const totalCost = cart.getTotalCost().toFixed(2);
 
@@ -20,7 +20,7 @@ export default function Cart() {
       {quantity[0] > 0 ? (
         <Fragment>
           {cart.items.map((item) => (
-            <CartItem id={item.id} quantity={item.quantity} />
+            <CartItem product={product} id={item.id} quantity={item.quantity} />
           ))}
         </Fragment>
       ) : (
@@ -48,7 +48,7 @@ export default function Cart() {
               shipping: <span>${shippingFee}</span>
             </p>
             <p>
-              total cost: <span>${totalCost}</span>
+              total cost: <span>${(+totalCost + +shippingFee).toFixed(2)}</span>
             </p>
           </div>
         </div>

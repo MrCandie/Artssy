@@ -15,11 +15,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import Link from "next/link";
 
-export default function ProductDetail({ product }) {
-  console.log(product);
+export default function ProductDetail({ product, allProduct }) {
   const cart = useContext(CartContext);
-
-  const allProduct = allProducts();
   if (!product) {
     return <p>Loading...</p>;
   }
@@ -98,7 +95,7 @@ export default function ProductDetail({ product }) {
                 </div>
                 <div className={classes.featDet}>
                   <p>{data.name}</p>
-                  <p>{data.price}</p>
+                  <p>${data.price}</p>
                 </div>
               </SwiperSlide>
             </div>

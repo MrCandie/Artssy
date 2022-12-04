@@ -1,13 +1,3 @@
-// import image1 from "./images/artsy1.avif";
-// import image2 from "./images/artsy1.avif";
-// import image3 from "./images/artsy3.avif";
-// import image4 from "./images/artsy4.avif";
-// import image5 from "./images/featured1.avif";
-// import image6 from "./images/featured2.avif";
-// import image7 from "./images/featured3.avif";
-// import image8 from "./images/featured4.avif";
-// import image9 from "./images/auction1.avif";
-
 export const DUMMY_DATA = [
   {
     id: "p1",
@@ -119,8 +109,23 @@ export const DUMMY_DATA = [
   },
 ];
 
-export const allProducts = () => {
-  return DUMMY_DATA;
+export async function storeData() {
+  const res = await fetch(
+    "https://artsy-e9951-default-rtdb.firebaseio.com/store.json"
+  );
+  const data = await res.json();
+  const loadedData = [];
+  for (const key in data) {
+    loadedData.push({
+      id: key,
+      ...data[key],
+    });
+  }
+  return loadedData;
+}
+
+export const allProducts = async () => {
+  return await storeData();
 };
 
 export function getProduct(id) {
@@ -128,26 +133,27 @@ export function getProduct(id) {
   return product;
 }
 
-export function getFashion() {
-  return DUMMY_DATA.filter((data) => data.type === "fashion");
-}
+// export function getFashion() {
+//   // const product = await storeData();
+//   return DUMMY_DATA.filter((data) => data.type === "fashion");
+// }
 
-export function getArt() {
-  return DUMMY_DATA.filter((data) => data.type === "art");
-}
-export function getNature() {
-  return DUMMY_DATA.filter((data) => data.type === "nature");
-}
+// export function getArt() {
+//   return DUMMY_DATA.filter((data) => data.type === "art");
+// }
+// export function getNature() {
+//   return DUMMY_DATA.filter((data) => data.type === "nature");
+// }
 
-export function hundredRange() {
-  return DUMMY_DATA.filter((data) => data.price <= 100);
-}
-export function oneFiftyRange() {
-  return DUMMY_DATA.filter((data) => data.price >= 100 && data.price <= 150);
-}
-export function twoHundredRange() {
-  return DUMMY_DATA.filter((data) => data.price >= 150 && data.price <= 200);
-}
-export function aboveTwoHundred() {
-  return DUMMY_DATA.filter((data) => data.price > 200);
-}
+// export function hundredRange() {
+//   return DUMMY_DATA.filter((data) => data.price <= 100);
+// }
+// export function oneFiftyRange() {
+//   return DUMMY_DATA.filter((data) => data.price >= 100 && data.price <= 150);
+// }
+// export function twoHundredRange() {
+//   return DUMMY_DATA.filter((data) => data.price >= 150 && data.price <= 200);
+// }
+// export function aboveTwoHundred() {
+//   return DUMMY_DATA.filter((data) => data.price > 200);
+// }

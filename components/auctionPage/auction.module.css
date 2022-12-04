@@ -155,7 +155,6 @@
   width: 60%;
   margin: 4rem auto;
   display: flex;
-  border: 1px solid;
   overflow: hidden;
   height: 70vh;
   gap: 1rem;
@@ -173,7 +172,7 @@
 }
 .current {
   position: absolute;
-  bottom: 0;
+  bottom: 5%;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -188,6 +187,15 @@
   line-height: 76px;
   letter-spacing: 0em;
   text-align: center;
+  animation: blink 0.5s ease infinite;
+}
+@keyframes blink {
+  from {
+    color: green;
+  }
+  to {
+    color: white;
+  }
 }
 .current p {
   font-family: Inter;
@@ -197,6 +205,7 @@
   letter-spacing: 0em;
   text-align: left;
   color: #fff;
+  margin: 0.5rem;
 }
 .h2 {
   position: absolute;

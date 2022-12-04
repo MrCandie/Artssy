@@ -39,6 +39,11 @@
   font-size: 1.2rem;
   color: #333333;
   cursor: pointer;
+  position: relative;
+}
+.icons span .qty {
+  color: #333;
+  font-size: 0.7rem;
 }
 .navbar {
   display: none;
@@ -119,5 +124,9 @@
     display: flex;
     gap: 0.8rem;
     font-size: 1.6rem;
+  }
+  .smallIcon span .qty {
+    color: #333;
+    font-size: 0.5rem;
   }
 }

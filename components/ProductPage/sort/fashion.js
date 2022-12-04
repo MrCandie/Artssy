@@ -3,9 +3,7 @@ import { getFashion } from "../../../Store";
 import ProductItem from "../productItem";
 import classes from "../product.module.css";
 
-export default function Fashion() {
-  const product = getFashion();
-
+export default function Fashion({ product }) {
   return (
     <section className={classes.fashion}>
       <h1>Fashion</h1>

@@ -3,8 +3,8 @@ import { getNature } from "../../../Store";
 import ProductItem from "../productItem";
 import classes from "../product.module.css";
 
-export default function Nature() {
-  const product = getNature();
+export default function Nature({ product }) {
+  // const product = getNature();
   return (
     <section className={classes.fashion}>
       <h1>Nature</h1>

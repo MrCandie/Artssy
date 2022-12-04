@@ -46,14 +46,12 @@ export default function Checkout() {
     })
       .then((res) => {
         setLoading(false);
-        if (res.ok) {
-          router.replace("/payment");
-        } else {
-          toast.error("something went wrong");
-        }
         return res.json();
       })
-      .then((data) => toast.success(data.message));
+      .then((data) => {
+        router.replace("/payment");
+        toast.success(data.message);
+      });
   }
 
   return (
