@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
+import { CartContext } from "../../CartContext";
 import Auction from "../../components/auctionPage/Auction";
+import Header from "../../components/Homepage/Header/Header";
 
 export default function Auctions({ data }) {
-  return <Auction data={data} />;
+  const cart = useContext(CartContext);
+  const quantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
+
+  return (
+    <Fragment>
+      <Header quantity={quantity} />
+      <Auction data={data} />;
+    </Fragment>
+  );
 }
 
 export async function getStaticProps() {

@@ -4,16 +4,11 @@ import { AiOutlineShoppingCart } from "react-icons/ai";
 import { AiOutlineMenu } from "react-icons/ai";
 import { BsBell } from "react-icons/bs";
 import { MdCancel } from "react-icons/md";
-import { CartContext } from "../../../CartContext";
 
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useState } from "react";
 import Link from "next/link";
 
-export default function Header() {
-  const cart = useContext(CartContext);
-
-  const quantity = "";
-
+export default function Header({ quantity }) {
   const [openMenu, setOpenMenu] = useState(false);
   return (
     <header className={classes.header}>

@@ -1,10 +1,9 @@
-import React, { Fragment } from "react";
-import Header from "../Homepage/Header/Header";
+import React, { Fragment, useContext } from "react";
 
 export default function Layout({ children }) {
   return (
     <Fragment>
-      <Header />;<main>{children}</main>
+      <main>{children}</main>
     </Fragment>
   );
 }

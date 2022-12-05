@@ -1,9 +1,18 @@
-import React from "react";
+import React, { Fragment, useContext } from "react";
+import { CartContext } from "../../CartContext";
+import Header from "../../components/Homepage/Header/Header";
 import AboveTwohundred from "../../components/ProductPage/sort/aboveTwohundred";
 import { storeData } from "../../Store";
 
 export default function Price3({ product }) {
-  return <AboveTwohundred product={product} />;
+  const cart = useContext(CartContext);
+  const quantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
+  return (
+    <Fragment>
+      <Header quantity={quantity} />
+      <AboveTwohundred product={product} />;
+    </Fragment>
+  );
 }
 
 export async function getStaticProps() {

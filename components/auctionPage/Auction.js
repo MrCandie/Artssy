@@ -25,7 +25,6 @@ export default function Auction({ data }) {
           className="mySwiper"
         >
           {data.map((item) => {
-            // console.log(item.time);
             return (
               <div key={item.id}>
                 <SwiperSlide className={classes.auction}>
@@ -51,7 +50,6 @@ export default function Auction({ data }) {
           className="mySwiper"
         >
           {data.map((item) => {
-            console.log(item.time);
             return (
               <div key={item.id}>
                 <SwiperSlide className={classes.auction}>

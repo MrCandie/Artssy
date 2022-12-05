@@ -1,8 +1,17 @@
-import React from "react";
+import React, { Fragment, useContext } from "react";
+import { CartContext } from "../../CartContext";
+import Header from "../../components/Homepage/Header/Header";
 import Product from "../../components/ProductPage/Product";
 
 export default function Products({ stores }) {
-  return <Product store={stores} />;
+  const cart = useContext(CartContext);
+  const quantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
+  return (
+    <Fragment>
+      <Header quantity={quantity} />
+      <Product store={stores} />;
+    </Fragment>
+  );
 }
 
 export async function getStaticProps() {

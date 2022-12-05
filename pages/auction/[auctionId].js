@@ -1,8 +1,17 @@
-import React from "react";
+import React, { Fragment, useContext } from "react";
+import { CartContext } from "../../CartContext";
 import LiveBids from "../../components/auctionPage/LiveBids";
+import Header from "../../components/Homepage/Header/Header";
 
 export default function LiveBid({ data, bid }) {
-  return <LiveBids bid={bid} data={data} />;
+  const cart = useContext(CartContext);
+  const quantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
+  return (
+    <Fragment>
+      <Header quantity={quantity} />
+      <LiveBids bid={bid} data={data} />;
+    </Fragment>
+  );
 }
 
 export async function getStaticProps(context) {

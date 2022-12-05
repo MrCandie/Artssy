@@ -1,12 +1,19 @@
-import { useRouter } from "next/router";
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
+import { CartContext } from "../../CartContext";
+import Header from "../../components/Homepage/Header/Header";
 import ProductDetail from "../../components/ProductPage/ProductDetails";
-import { getProduct, storeData } from "../../Store";
+import { storeData } from "../../Store";
 
 export default function ProductDetails({ product, data }) {
-  const router = useRouter();
-  // const id = router.query.productId;
-  return <ProductDetail allProduct={data} product={product} />;
+  const cart = useContext(CartContext);
+  const quantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
+
+  return (
+    <Fragment>
+      <Header quantity={quantity} />
+      <ProductDetail allProduct={data} product={product} />;
+    </Fragment>
+  );
 }
 
 export async function getStaticProps(context) {
