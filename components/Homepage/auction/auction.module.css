@@ -2,12 +2,11 @@
   width: 100%;
   margin: 3rem 0;
   background: linear-gradient(
-      50.99deg,
-      #4693ed -26.21%,
-      #79c2d2 22.16%,
-      rgba(192, 86, 9, 0.1) 111.62%
-    ),
-    url("/images/auction1.avif");
+    50.99deg,
+    #4693ed -26.21%,
+    #79c2d2 22.16%,
+    rgba(192, 86, 9, 0.1) 111.62%
+  );
   height: 80vh;
   padding: 1rem 0;
   /* opacity: ; */
@@ -15,6 +14,26 @@
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+}
+.image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  /* margin: auto; */
+}
+.image img {
+  width: 100%;
+  height: 400px;
+}
+.black {
+  position: absolute;
+  top: 15%;
+  background: rgba(0, 0, 0, 0.7);
+  height: 340px;
+  width: 100%;
+  z-index: 20;
 }
 .container {
   position: absolute;
@@ -113,11 +132,11 @@
 @media (max-width: 850px) {
   .section h1,
   .content h2 {
-    font-size: 1.2rem;
+    font-size: 1rem;
     width: 90%;
   }
   .container {
-    bottom: 5%;
+    bottom: 27%;
   }
   .content,
   .number,
@@ -134,5 +153,11 @@
   }
   .body {
     flex-direction: column;
+  }
+  .content p {
+    font-size: 0.6rem;
+  }
+  .button {
+    justify-content: space-around;
   }
 }

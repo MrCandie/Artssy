@@ -124,6 +124,21 @@ export async function storeData() {
   return loadedData;
 }
 
+export async function auctionData() {
+  const res = await fetch(
+    "https://artsy-e9951-default-rtdb.firebaseio.com/auction.json"
+  );
+  const data = await res.json();
+  const loadedData = [];
+  for (const key in data) {
+    loadedData.push({
+      id: key,
+      ...data[key],
+    });
+  }
+  return loadedData;
+}
+
 export const allProducts = async () => {
   return await storeData();
 };

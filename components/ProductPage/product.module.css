@@ -50,7 +50,6 @@
   outline: none;
 }
 .sort form {
-  border: 1px solid #333;
   padding: 0 1rem;
   border-radius: 1rem;
 }
@@ -346,8 +345,12 @@
   .search {
     display: none;
   }
+  .sort {
+    border: none;
+  }
   .sort p {
     font-size: 0.7rem;
+    display: none;
   }
   .details {
     width: 90%;

@@ -165,6 +165,7 @@
 }
 .livebid .image {
   width: 100%;
+  position: relative;
 }
 .livebid .image img {
   width: 100%;
@@ -188,6 +189,13 @@
   letter-spacing: 0em;
   text-align: center;
   animation: blink 0.5s ease infinite;
+}
+.black {
+  position: absolute;
+  top: 0;
+  height: 500px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
 }
 @keyframes blink {
   from {
@@ -327,6 +335,7 @@
   }
   .live {
     width: 90%;
+    position: relative;
     padding: 0 0 1rem;
     flex-direction: column;
     height: 100%;
@@ -336,18 +345,23 @@
     font-size: 1rem;
   }
   .livebid .image img {
-    height: 700px;
+    height: 600px;
+  }
+  .black {
+    height: 600px;
   }
   .livebid,
   .viewer {
     width: 100%;
   }
   .viewer {
-    position: absolute;
     bottom: 8%;
     left: 0;
   }
   .view {
+    position: absolute;
+    bottom: 30%;
+    left: -8%;
     height: 40vh;
     overflow: hidden;
     margin-left: 2rem;
@@ -359,7 +373,7 @@
   .views {
     background: transparent;
     margin: 0;
-    opacity: 0.8;
+    /* opacity: 0.8; */
   }
   .form div {
     border: none;
@@ -367,14 +381,24 @@
   .current p {
     display: none;
   }
+  .current {
+    bottom: 50%;
+  }
   .current h1 {
-    display: none;
+    font-size: 2rem;
+    /* bottom: 20%; */
+    /* display: none; */
   }
   .form h1 {
     color: #fff;
   }
   .form div button {
     color: #fff;
+  }
+  .form {
+    position: absolute;
+    bottom: 8%;
+    left: 5%;
   }
   .upcoming {
     width: 90%;

@@ -23,7 +23,7 @@ export default function Creator() {
           photography. Everything looks more exciting.”– Jack Lowden
         </p>
       </div>
-      <s>85</s>
+      <s>1985</s>
       <div className={classes.image}>
         <img src="/images/creator1.avif" />
       </div>

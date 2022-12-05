@@ -6,7 +6,7 @@ import { BsBell } from "react-icons/bs";
 import { MdCancel } from "react-icons/md";
 import { CartContext } from "../../../CartContext";
 
-import React, { useContext, useState } from "react";
+import React, { Fragment, useContext, useState } from "react";
 import Link from "next/link";
 
 export default function Header() {
@@ -54,28 +54,29 @@ export default function Header() {
         </span>
       </div>
       {openMenu && (
-        <div className={classes.navbar}>
-          <span onClick={() => setOpenMenu(false)}>
-            <MdCancel />
-          </span>
-          <ul>
-            <li>
-              <Link href="/">Home</Link>
-            </li>
+        <Fragment>
+          <div onClick={() => setOpenMenu(false)} className="overlay"></div>
+          <div className={classes.navbar}>
+            <span onClick={() => setOpenMenu(false)}>
+              <MdCancel />
+            </span>
+            <ul>
+              <li>
+                <Link href="/">Home</Link>
+              </li>
 
-            <li>
-              <Link href="/product">Marketplace</Link>
-            </li>
-
-            <li>
-              <Link href="/auction">Auction</Link>
-            </li>
-
-            <li>
-              <Link href="/drop">Drop</Link>
-            </li>
-          </ul>
-        </div>
+              <li>
+                <Link href="/product">Marketplace</Link>
+              </li>
+              <li>
+                <Link href="/auction">Auction</Link>
+              </li>
+              <li>
+                <Link href="/drop">Drop</Link>
+              </li>
+            </ul>
+          </div>
+        </Fragment>
       )}
       <div className={classes.smallIcon}>
         <span>

@@ -7,6 +7,10 @@ import { FaLessThan } from "react-icons/fa";
 export default function Auction() {
   return (
     <section className={classes.section}>
+      <div className={classes.image}>
+        <div className={classes.black}></div>
+        <img src="/images/auction1.avif" />
+      </div>
       <h1>see upcoming auctions and exhibitions</h1>
       <div className={classes.container}>
         <div className={classes.body}>

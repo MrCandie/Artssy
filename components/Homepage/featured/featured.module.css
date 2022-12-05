@@ -17,6 +17,7 @@
   align-items: center;
   gap: 1rem;
   width: 100%;
+  position: relative;
 }
 .image {
   width: 50%;
@@ -46,7 +47,7 @@
 .creator {
   display: flex;
   gap: 2rem;
-  position: relative;
+  /* position: relative; */
   align-items: center;
 }
 .creators {
@@ -87,7 +88,7 @@
 .arrow {
   position: absolute;
   right: 0;
-  bottom: 25%;
+  bottom: 10%;
   fontsize: 1rem;
   background: transparent;
   border: 1px solid #ccc;
@@ -109,6 +110,10 @@
   align-items: center;
   flex-direction: row-reverse;
   gap: 1rem;
+  position: relative;
+}
+.black {
+  display: none;
 }
 @media (max-width: 850px) {
   .section {
@@ -129,6 +134,11 @@
     width: 100%;
   }
   .content h1 {
+    position: absolute;
+    top: 5%;
+    color: #fff;
+    left: 15%;
+
     font-size: 1.2rem;
   }
   .content p {
@@ -160,6 +170,17 @@
     margin-left: -1.2rem;
   }
   .arrow {
-    bottom: 15%;
+    top: 50%;
+    right: 10%;
+    color: #fff;
+    font-weight: bold;
+  }
+  .black {
+    display: block;
+    position: absolute;
+    top: 0;
+    height: 400px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
   }
 }

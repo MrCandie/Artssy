@@ -1,6 +1,5 @@
 import React from "react";
 import Product from "../../components/ProductPage/Product";
-import { allProducts, getProduct } from "../../Store";
 
 export default function Products({ stores }) {
   return <Product store={stores} />;

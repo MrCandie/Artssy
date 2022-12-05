@@ -9,6 +9,7 @@ export default function Featured() {
       <div className={classes.container}>
         <hr />
         <div className={classes.product}>
+          <div className={classes.black}></div>
           <div className={classes.image}>
             <img src="/images/featured1.avif" />
           </div>
@@ -40,6 +41,7 @@ export default function Featured() {
         <hr />
 
         <div className={classes.product1}>
+          <div className={classes.black}></div>
           <div className={classes.image}>
             <img src="/images/featured3.avif" />
           </div>
@@ -71,6 +73,7 @@ export default function Featured() {
 
         <hr />
         <div className={classes.product}>
+          <div className={classes.black}></div>
           <div className={classes.image}>
             <img src="/images/featured4.avif" />
           </div>

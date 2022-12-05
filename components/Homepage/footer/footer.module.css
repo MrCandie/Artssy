@@ -77,4 +77,10 @@
   .social a {
     font-size: 1.1rem;
   }
+  .mobile {
+    display: none;
+  }
+  .foot {
+    display: none;
+  }
 }

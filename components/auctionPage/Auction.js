@@ -4,8 +4,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper";
 import Bids from "./Bids";
+import { Spinner } from "../spinner/spinner";
 
-export default function Auction() {
+export default function Auction({ data }) {
+  if (data.length === 0) {
+    return <Spinner />;
+  }
+
   return (
     <section className={classes.section}>
       <h1>Here’s an overview of products actively on auction, explore!</h1>
@@ -19,87 +24,19 @@ export default function Auction() {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction1.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
+          {data.map((item) => {
+            // console.log(item.time);
+            return (
+              <div key={item.id}>
+                <SwiperSlide className={classes.auction}>
+                  <img src={item.image} />
+                  <div className={classes.time}>
+                    <p>{item.time} hours</p>
+                  </div>
+                </SwiperSlide>
               </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction2.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction3.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction4.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction5.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction6.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction7.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction8.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction9.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction10.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
+            );
+          })}
         </Swiper>
       </div>
 
@@ -113,89 +50,22 @@ export default function Auction() {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction1.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
+          {data.map((item) => {
+            console.log(item.time);
+            return (
+              <div key={item.id}>
+                <SwiperSlide className={classes.auction}>
+                  <img src={item.image} />
+                  <div className={classes.time}>
+                    <p>{item.time} hours</p>
+                  </div>
+                </SwiperSlide>
               </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction2.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction3.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction4.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction5.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction6.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction7.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction8.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction9.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
-          <div>
-            <SwiperSlide className={classes.auction}>
-              <img src="/images/auction10.avif" />
-              <div className={classes.time}>
-                <p>6hr : 40mins : 15s</p>
-              </div>
-            </SwiperSlide>
-          </div>
+            );
+          })}
         </Swiper>
       </div>
-      <Bids />
+      <Bids data={data} />
     </section>
   );
 }

@@ -8,17 +8,19 @@ export default function Footer() {
     <footer className={classes.footer}>
       <div className={classes.container}>
         <h1>ARTSY</h1>
-        <div className={classes.menu}>
-          <Link href="">Home</Link>
-          <Link href="">Marketplace</Link>
-          <Link href="">Auctions</Link>
-          <Link href="">Drops</Link>
-        </div>
-        <div className={classes.menu}>
-          <Link href="">Blog</Link>
-          <Link href="">Rates</Link>
-          <Link href="">Wallet</Link>
-          <Link href="">High Bids</Link>
+        <div className={classes.mobile}>
+          <div className={classes.menu}>
+            <Link href="/">Home</Link>
+            <Link href="/product">Marketplace</Link>
+            <Link href="/auction">Auctions</Link>
+            <Link href="/drop">Drops</Link>
+          </div>
+          <div className={classes.menu}>
+            <Link href="">Blog</Link>
+            <Link href="">Rates</Link>
+            <Link href="">Wallet</Link>
+            <Link href="">High Bids</Link>
+          </div>
         </div>
         <div className={classes.social}>
           <Link href="">
