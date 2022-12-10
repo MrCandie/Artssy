@@ -37,6 +37,7 @@
 .auction img {
   width: 100%;
   height: 300px;
+  object-fit: cover;
 }
 .time {
   background: rgba(255, 255, 255, 0.2);

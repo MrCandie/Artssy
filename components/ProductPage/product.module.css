@@ -112,7 +112,8 @@
 }
 .list li img {
   width: 100%;
-  height: 280px;
+  height: 300px;
+  object-fit: cover;
 }
 .list li h1 {
   font-size: 1rem;
@@ -145,6 +146,7 @@
 }
 .image img {
   width: 100%;
+  object-fit: cover;
 }
 .description {
   width: 60%;
@@ -286,6 +288,7 @@
 .featImg img {
   width: 100%;
   height: 300px;
+  object-fit: cover;
 }
 .featDet {
   display: flex;
