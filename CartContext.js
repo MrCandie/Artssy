@@ -8,10 +8,14 @@ export const CartContext = createContext({
   removeOneFromCart: () => {},
   deleteFromCart: () => {},
   getTotalCost: () => {},
+  ids: [],
+  addFavorites: (id) => {},
+  removeFavorites: (id) => {},
 });
 
 export function CartProvider({ children }) {
   const [cartProduct, setCartProduct] = useState([]);
+  const [favoritesId, setFavoritesId] = useState([]);
 
   function getProductQuantity(id) {
     const quantity = cartProduct.find((product) => product.id === id)?.quantity;
@@ -19,6 +23,13 @@ export function CartProvider({ children }) {
       return 0;
     }
     return quantity;
+  }
+  function addFavorites(id) {
+    setFavoritesId((curId) => [...curId, id]);
+  }
+
+  function removeFavorites(id) {
+    setFavoritesId((curId) => curId.filter((favId) => favId !== id));
   }
 
   function addOneToCart(id) {
@@ -73,6 +84,9 @@ export function CartProvider({ children }) {
     deleteFromCart,
     getTotalCost,
     getProductQuantity,
+    addFavorites,
+    removeFavorites,
+    ids: favoritesId,
   };
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

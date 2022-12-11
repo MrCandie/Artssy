@@ -2,7 +2,8 @@ import classes from "./product.module.css";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import { GrAdd } from "react-icons/gr";
-import { CiHeart } from "react-icons/ci";
+import { MdFavorite } from "react-icons/md";
+import { MdFavoriteBorder } from "react-icons/md";
 import { Fragment, useContext } from "react";
 import { FaGreaterThan } from "react-icons/fa";
 import { FaLessThan } from "react-icons/fa";
@@ -36,6 +37,19 @@ export default function ProductDetail({ product, allProduct }) {
   }
 
   const quantity = cart.getProductQuantity(product.id);
+
+  const productIsFavorite = cart.ids.includes(product.id);
+
+  function favoritesHandler() {
+    if (productIsFavorite) {
+      toast.success(`${product.name} removed from favorites`);
+      return cart.removeFavorites(product.id);
+    } else {
+      toast.success(`${product.name} added to favorites`);
+      return cart.addFavorites(product.id);
+    }
+  }
+
   return (
     <Fragment>
       <div className={classes.details}>
@@ -68,8 +82,8 @@ export default function ProductDetail({ product, allProduct }) {
                 <AiOutlineArrowRight />
               </span>
             </button>
-            <span className={classes.span}>
-              <CiHeart />
+            <span onClick={favoritesHandler} className={classes.span}>
+              {productIsFavorite ? <MdFavorite /> : <MdFavoriteBorder />}
             </span>
           </div>
         </div>

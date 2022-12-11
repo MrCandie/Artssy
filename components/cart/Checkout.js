@@ -49,8 +49,8 @@ export default function Checkout() {
         return res.json();
       })
       .then((data) => {
-        router.replace("/payment");
         toast.success(data.message);
+        return router.push("/payment");
       });
   }
 

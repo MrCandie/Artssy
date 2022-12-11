@@ -27,6 +27,9 @@ export default function Header({ quantity }) {
             <Link href="/product">Marketplace</Link>
           </li>
           <li>
+            <Link href="/favorite">Favorites</Link>
+          </li>
+          <li>
             <Link href="/auction">Auction</Link>
           </li>
           <li>
@@ -62,6 +65,9 @@ export default function Header({ quantity }) {
 
               <li>
                 <Link href="/product">Marketplace</Link>
+              </li>
+              <li>
+                <Link href="/favorite">Favorites</Link>
               </li>
               <li>
                 <Link href="/auction">Auction</Link>
