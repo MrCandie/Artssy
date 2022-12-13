@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function CartProduct({ id, quantity, product }) {
   const cart = useContext(CartContext);
-  const products = getProduct(id);
+  const products = product.find((item) => item.id === id);
 
   function addToCartHandler() {
     toast.success("One item added to cart", {

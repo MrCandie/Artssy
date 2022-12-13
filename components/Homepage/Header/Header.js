@@ -38,9 +38,11 @@ export default function Header({ quantity }) {
         </ul>
       </nav>
       <div className={classes.icons}>
-        <span>
-          <AiOutlineSearch />
-        </span>
+        <Link href="/search">
+          <span>
+            <AiOutlineSearch />
+          </span>
+        </Link>
         <Link href="/cart">
           <span>
             <AiOutlineShoppingCart />
@@ -80,9 +82,11 @@ export default function Header({ quantity }) {
         </Fragment>
       )}
       <div className={classes.smallIcon}>
-        <span>
-          <AiOutlineSearch />
-        </span>
+        <Link href="/search">
+          <span>
+            <AiOutlineSearch />
+          </span>
+        </Link>
         <Link href="/cart">
           <span>
             <AiOutlineShoppingCart />

@@ -1,3 +1,100 @@
+import axios from "axios";
+
+const BACKEND_URL = "https://artsy-e9951-default-rtdb.firebaseio.com/";
+
+//////////////////////////////////////////////////////////
+//HANDLING CART DATA
+export async function postCart(data) {
+  const response = await axios.post(BACKEND_URL + "cart.json", data);
+
+  return response.data.name;
+}
+
+export async function getCartData() {
+  const response = await axios.get(BACKEND_URL + "cart.json");
+
+  const loadedCart = [];
+  for (const key in response.data) {
+    loadedCart.push({
+      cartId: key,
+      ...response.data[key],
+    });
+  }
+  return loadedCart;
+}
+
+export async function updateCart(id, data) {
+  return await axios.put(BACKEND_URL + `cart/${id}.json`, data);
+}
+
+export async function deleteCart(id) {
+  await axios.delete(BACKEND_URL + `cart/${id}.json`);
+}
+
+////////////////////////////////////////////////////////////
+// HANDLING FAVORITES DATA
+
+export async function postFavorites(data) {
+  const response = await axios.post(BACKEND_URL + "favorites.json", data);
+
+  return response.data.name;
+}
+
+export async function getFavorites() {
+  const response = await axios.get(BACKEND_URL + "favorites.json");
+
+  const loadedCart = [];
+  for (const key in response.data) {
+    loadedCart.push({
+      favId: key,
+      ...response.data[key],
+    });
+  }
+  return loadedCart;
+}
+
+export async function deleteFavorites(id) {
+  await axios.delete(BACKEND_URL + `favorites/${id}.json`);
+}
+
+/////////////////////////////////////////////////////
+//HANDLING STORE DATA
+export async function storeData() {
+  const response = await axios.get(BACKEND_URL + "store.json");
+
+  const loadedData = [];
+  for (const key in response.data) {
+    loadedData.push({
+      id: key,
+      ...response.data[key],
+    });
+  }
+  return loadedData;
+}
+
+export async function auctionData() {
+  const res = await axios.get(BACKEND_URL + "auction.json");
+
+  const loadedData = [];
+  for (const key in res.data) {
+    loadedData.push({
+      id: key,
+      ...res.data[key],
+    });
+  }
+  return loadedData;
+}
+
+export const allProducts = async () => {
+  return await storeData();
+};
+
+export async function getProduct(id) {
+  const data = await storeData();
+  const product = data.find((data) => data.id === id);
+  return product;
+}
+
 export const DUMMY_DATA = [
   {
     id: "p1",
@@ -109,66 +206,6 @@ export const DUMMY_DATA = [
   },
 ];
 
-export async function storeData() {
-  const res = await fetch(
-    "https://artsy-e9951-default-rtdb.firebaseio.com/store.json"
-  );
-  const data = await res.json();
-  const loadedData = [];
-  for (const key in data) {
-    loadedData.push({
-      id: key,
-      ...data[key],
-    });
-  }
-  return loadedData;
+export function getProductData(id) {
+  return DUMMY_DATA.find((item) => item.id === id);
 }
-
-export async function auctionData() {
-  const res = await fetch(
-    "https://artsy-e9951-default-rtdb.firebaseio.com/auction.json"
-  );
-  const data = await res.json();
-  const loadedData = [];
-  for (const key in data) {
-    loadedData.push({
-      id: key,
-      ...data[key],
-    });
-  }
-  return loadedData;
-}
-
-export const allProducts = async () => {
-  return await storeData();
-};
-
-export function getProduct(id) {
-  const product = DUMMY_DATA.find((data) => data.id === id);
-  return product;
-}
-
-// export function getFashion() {
-//   // const product = await storeData();
-//   return DUMMY_DATA.filter((data) => data.type === "fashion");
-// }
-
-// export function getArt() {
-//   return DUMMY_DATA.filter((data) => data.type === "art");
-// }
-// export function getNature() {
-//   return DUMMY_DATA.filter((data) => data.type === "nature");
-// }
-
-// export function hundredRange() {
-//   return DUMMY_DATA.filter((data) => data.price <= 100);
-// }
-// export function oneFiftyRange() {
-//   return DUMMY_DATA.filter((data) => data.price >= 100 && data.price <= 150);
-// }
-// export function twoHundredRange() {
-//   return DUMMY_DATA.filter((data) => data.price >= 150 && data.price <= 200);
-// }
-// export function aboveTwoHundred() {
-//   return DUMMY_DATA.filter((data) => data.price > 200);
-// }

@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import { CartContext } from "../../CartContext";
+import { getCartData } from "../../Store";
 import classes from "./cart.module.css";
 import CartItem from "./CartItem";
 
@@ -10,6 +11,14 @@ export default function Cart({ product }) {
 
   const shippingFee = (totalCost * 0.07).toFixed(2);
   const quantity = cart.items.reduce((acc, item) => acc + item.quantity, 0);
+
+  useEffect(() => {
+    async function fetchCart() {
+      const data = await getCartData();
+      cart.setCartItem(data);
+    }
+    fetchCart();
+  }, [cart, quantity]);
 
   return (
     <section className={classes.section}>
@@ -22,7 +31,9 @@ export default function Cart({ product }) {
         </Fragment>
       ) : (
         <div className="center">
-          <p>Your Cart is Currently empty!</p>
+          <div className="img">
+            <img src="/images/empty.svg" />
+          </div>
           <Link href="product">Go to store</Link>
         </div>
       )}

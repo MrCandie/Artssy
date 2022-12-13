@@ -32,7 +32,8 @@ ul {
   display: block;
   padding: 1rem;
   color: #fff;
-  width: 200px;
+  width: 250px;
+  text-align: center;
   border-radius: 0.4rem;
   margin: 1rem auto;
   transition: transform 0.2s ease-in;
@@ -48,4 +49,13 @@ ul {
   right: 0;
   background: rgba(0, 0, 0, 0.5);
   z-index: 5;
+}
+.center .img {
+  width: 250px;
+  opacity: 0.7;
+  margin: 5rem auto;
+  text-align: center;
+}
+.center .img img {
+  width: 100%;
 }

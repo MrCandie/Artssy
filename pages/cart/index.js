@@ -2,7 +2,7 @@ import React, { Fragment, useContext } from "react";
 import { CartContext } from "../../CartContext";
 import Cart from "../../components/cart/Cart";
 import Header from "../../components/Homepage/Header/Header";
-import { storeData } from "../../Store";
+import { getProduct, storeData } from "../../Store";
 
 export default function Carts({ product }) {
   const cart = useContext(CartContext);

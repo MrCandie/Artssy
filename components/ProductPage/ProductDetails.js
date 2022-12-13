@@ -4,10 +4,10 @@ import { AiOutlineArrowRight } from "react-icons/ai";
 import { GrAdd } from "react-icons/gr";
 import { MdFavorite } from "react-icons/md";
 import { MdFavoriteBorder } from "react-icons/md";
-import { Fragment, useContext } from "react";
+import { Fragment, useContext, useEffect } from "react";
 import { FaGreaterThan } from "react-icons/fa";
 import { FaLessThan } from "react-icons/fa";
-import { allProducts } from "../../Store";
+import { allProducts, getFavorites } from "../../Store";
 import { CartContext } from "../../CartContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -18,6 +18,13 @@ import Link from "next/link";
 
 export default function ProductDetail({ product, allProduct }) {
   const cart = useContext(CartContext);
+  useEffect(() => {
+    async function fetchFav() {
+      const fav = await getFavorites();
+      cart.setFavorites(fav);
+    }
+    fetchFav();
+  });
   if (!product) {
     return <p>Loading...</p>;
   }
@@ -37,8 +44,9 @@ export default function ProductDetail({ product, allProduct }) {
   }
 
   const quantity = cart.getProductQuantity(product.id);
+  const productIsFav = cart.ids.map((item) => item.id);
 
-  const productIsFavorite = cart.ids.includes(product.id);
+  const productIsFavorite = productIsFav.includes(product.id);
 
   function favoritesHandler() {
     if (productIsFavorite) {
