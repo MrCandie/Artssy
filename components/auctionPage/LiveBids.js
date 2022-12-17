@@ -3,9 +3,9 @@ import { IoIosSend } from "react-icons/io";
 import { Fragment, useEffect, useRef, useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Link from "next/link";
-import io from "socket.io-client";
+import { io } from "socket.io-client";
 
-const socket = io.connect("http://localhost:3001");
+const socket = io("http://localhost:3001", { transports: ["websocket"] });
 
 export default function LiveBids({ data, bid }) {
   const messageRef = useRef();
@@ -27,6 +27,7 @@ export default function LiveBids({ data, bid }) {
 
   useEffect(() => {
     socket.on("receive_message", (data) => {
+      console.log(data);
       setMessageContent((prevMsg) => [
         { name: data.name, message: data.message },
         ...prevMsg,
