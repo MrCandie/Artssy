@@ -59,3 +59,30 @@ ul {
 .center .img img {
   width: 100%;
 }
+.form {
+  display: flex;
+  gap: 1rem;
+}
+.form input {
+  background: #ccc;
+  border-radius: 1rem;
+}
+/* width */
+body::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+body::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+body::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+body::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

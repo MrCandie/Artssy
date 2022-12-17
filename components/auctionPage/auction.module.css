@@ -286,7 +286,6 @@
   padding: 0.4rem;
   display: flex;
   align-items: center;
-  border: 1px solid #333;
   border-radius: 2rem;
 }
 .form input {
@@ -370,6 +369,7 @@
     height: 40vh;
     overflow: hidden;
     margin-left: 2rem;
+    overflow: scroll;
   }
   .content p {
     color: #fff;
@@ -410,4 +410,24 @@
     width: 90%;
     /* margin: 1rem auto; */
   }
+}
+/* width */
+.view::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+.view::-webkit-scrollbar-track {
+  background: red;
+  display: none;
+}
+
+/* Handle */
+.view::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+/* Handle on hover */
+.view::-webkit-scrollbar-thumb:hover {
+  display: none;
 }

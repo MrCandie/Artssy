@@ -1,10 +1,41 @@
 import classes from "./auction.module.css";
 import { IoIosSend } from "react-icons/io";
-import { Fragment } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Link from "next/link";
+import io from "socket.io-client";
+
+const socket = io.connect("http://localhost:3001");
 
 export default function LiveBids({ data, bid }) {
+  const messageRef = useRef();
+  const nameRef = useRef();
+  const [messageContent, setMessageContent] = useState([]);
+
+  async function bidHandler(e) {
+    e.preventDefault();
+    const enteredMessage = messageRef.current.value;
+    const enteredName = nameRef.current.value;
+    if (!enteredMessage || !enteredName) {
+      return;
+    }
+    socket.emit("send_message", {
+      name: enteredName.trim(),
+      message: enteredMessage.trim(),
+    });
+  }
+
+  useEffect(() => {
+    socket.on("receive_message", (data) => {
+      setMessageContent((prevMsg) => [
+        { name: data.name, message: data.message },
+        ...prevMsg,
+      ]);
+    });
+  }, [socket, messageContent]);
+
+  console.log(messageContent);
+
   return (
     <Fragment>
       <section className={classes.live}>
@@ -21,23 +52,26 @@ export default function LiveBids({ data, bid }) {
         </div>
         <div className={classes.viewer}>
           <div className={classes.view}>
-            {bid.map((bids) => (
+            {messageContent.map((bids) => (
               <div className={classes.views}>
                 <div className={classes.img}>
-                  <img src={bids.image} />
+                  <img src="../../images/art.avif" />
                 </div>
                 <div className={classes.content}>
                   <p>{bids.name}</p>
-                  <p>{bids.bid}</p>
+                  <p>{bids.message}</p>
                 </div>
               </div>
             ))}
           </div>
           <div className={classes.form}>
             <h1>Creator : {data.creator}</h1>
-            <form>
+            <form onSubmit={bidHandler}>
               <div>
-                <input placeholder="place a bid" />
+                <div className="form">
+                  <input ref={nameRef} placeholder="Enter name" />
+                  <input ref={messageRef} placeholder="place a bid" />
+                </div>
                 <button>
                   <IoIosSend />
                 </button>

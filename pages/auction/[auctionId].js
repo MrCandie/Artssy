@@ -28,7 +28,7 @@ export async function getStaticProps(context) {
   }
 
   const response = await fetch(
-    "https://artsy-e9951-default-rtdb.firebaseio.com/view.json"
+    "https://artsy-e9951-default-rtdb.firebaseio.com/bid.json"
   );
   const bid = await response.json();
   const loadedbid = [];
